@@ -9,13 +9,33 @@ const List = ({ notes, onDelete }) => {
   return (
     <>
       <ul className={style.list}>
-        {notes &&
-          notes.map(({ note, id }) => (
-            <li key={id} className={style.item}>
-              <button type="buton" onClick={() => onDelete(id)}>
-                <TiDelete className={style.icon} />
-              </button>
-              <p className={style.p}>{note}</p>
+        {notes.length > 0 &&
+          notes.map((someNotes) => (
+            <li key={someNotes.id} className={style.item}>
+              <div className={style.buttonContainer}>
+                <div>
+                  <button
+                    type="button"
+                    className={style.button}
+                    onClick={() => moveUp(someNotes, notes)}
+                  >
+                    <TiArrowSortedUp />
+                  </button>
+
+                  <button
+                    type="button"
+                    className={style.button}
+                    onClick={() => moveDown(someNotes, notes)}
+                  >
+                    <TiArrowSortedDown />
+                  </button>
+                </div>
+                <button type="buton" onClick={() => onDelete(someNotes.id)}>
+                  <TiDelete className={style.icon} />
+                </button>
+              </div>
+
+              <p className={style.p}>{someNotes.note}</p>
 
               <SubList />
             </li>
