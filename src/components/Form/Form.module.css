@@ -1,0 +1,14 @@
+.input {
+  padding: 5px 10px;
+}
+
+.button {
+  border: 1px solid black;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+button:active {
+  transform: scale(0.9);
+}

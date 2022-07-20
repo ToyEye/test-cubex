@@ -1,0 +1,39 @@
+.list {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.item {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background-color: rgb(207, 207, 197);
+  margin-top: 15px;
+  overflow-y: auto;
+}
+
+.icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  right: 0;
+}
+
+.p {
+  margin-bottom: 5px;
+}
+
+.button {
+  border: 1px solid black;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+button:active {
+  transform: scale(0.9);
+}

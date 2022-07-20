@@ -5,9 +5,12 @@
   "keywords": ["react", "starter"],
   "main": "src/index.js",
   "dependencies": {
+    "nanoid": "4.0.0",
     "react": "18.0.0",
     "react-dom": "18.0.0",
-    "react-scripts": "4.0.0"
+    "react-icons": "4.4.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "2.1.4"
   },
   "devDependencies": {
     "@babel/runtime": "7.13.8",
