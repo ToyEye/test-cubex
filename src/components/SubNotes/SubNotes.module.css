@@ -1,15 +1,13 @@
 .item {
-  position: relative;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  padding: 5px;
 }
 
 .icon {
-  position: absolute;
   width: 20px;
   height: 20px;
-  top: 2px;
-  right: 10px;
 }
 
 .button {

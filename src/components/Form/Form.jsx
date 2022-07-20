@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import style from "./Form.module.css";
+import { addNote } from "../helpers";
 
 const AddForm = ({ onSubmit }) => {
   const [value, setValue] = useState("");
@@ -13,7 +14,7 @@ const AddForm = ({ onSubmit }) => {
     if (value === "") {
       return;
     }
-    onSubmit(value);
+    addNote(value, onSubmit);
     setValue("");
   };
 

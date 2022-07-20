@@ -1,23 +1,12 @@
 import React, { useState } from "react";
 import style from "./SubNotes.module.css";
 import AddForm from "../Form/Form";
-import { nanoid } from "nanoid";
 import { TiDelete, TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
-import { moveDown, moveUp } from "../helpers";
+import { moveDown, moveUp, deleteNote } from "../helpers";
 
 const SubList = () => {
   const [subNotes, setSubNotes] = useState([]);
   const [addSubList, setAddSubList] = useState(false);
-
-  const addNote = (value) => {
-    const newNote = { id: nanoid(), subNote: value };
-    setSubNotes((subNotes) => [...subNotes, newNote]);
-  };
-
-  const deleteNote = (id) => {
-    const newNotes = subNotes.filter((subNote) => subNote.id !== id);
-    setSubNotes(newNotes);
-  };
 
   const deleteSublist = () => {
     setSubNotes([]);
@@ -35,7 +24,7 @@ const SubList = () => {
           >
             Delete Sublist
           </button>
-          <AddForm onSubmit={addNote} />
+          <AddForm onSubmit={setSubNotes} />
 
           <ul>
             {subNotes &&
@@ -45,21 +34,24 @@ const SubList = () => {
                     <button
                       type="button"
                       className={style.button}
-                      onClick={() => moveUp(sub, subNotes)}
+                      onClick={() => moveUp(sub, subNotes, setSubNotes)}
                     >
                       <TiArrowSortedUp />
                     </button>
                     <button
                       type="button"
                       className={style.button}
-                      onClick={() => moveDown(sub, subNotes)}
+                      onClick={() => moveDown(sub, subNotes, setSubNotes)}
                     >
                       <TiArrowSortedDown />
                     </button>
                   </div>
 
-                  <p>{sub.subNote}</p>
-                  <button type="buton" onClick={() => deleteNote(sub.id)}>
+                  <p>{sub.note}</p>
+                  <button
+                    type="buton"
+                    onClick={() => deleteNote(sub.id, subNotes, setSubNotes)}
+                  >
                     <TiDelete className={style.icon} />
                   </button>
                 </li>
