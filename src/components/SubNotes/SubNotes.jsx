@@ -38,6 +38,7 @@ const SubList = () => {
                     >
                       <TiArrowSortedUp />
                     </button>
+
                     <button
                       type="button"
                       className={style.button}
@@ -57,6 +58,7 @@ const SubList = () => {
                 </li>
               ))}
           </ul>
+          <SubList />
         </>
       ) : (
         <button

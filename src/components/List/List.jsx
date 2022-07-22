@@ -9,9 +9,9 @@ const List = () => {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    const saveNotes = localStorage.getItem("notes");
+    const saveNotes = JSON.parse(localStorage.getItem("notes"));
     if (saveNotes) {
-      setNotes([...saveNotes]);
+      setNotes(saveNotes);
     }
   }, []);
 
@@ -23,7 +23,7 @@ const List = () => {
     <>
       <AddForm onSubmit={setNotes} />
       <ul className={style.list}>
-        {notes.length > 0 &&
+        {notes &&
           notes.map((someNotes) => (
             <li key={someNotes.id} className={style.item}>
               <div className={style.buttonContainer}>

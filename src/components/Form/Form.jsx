@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import style from "./Form.module.css";
+import toast from "react-hot-toast";
 import { addNote } from "../helpers";
 
 const AddForm = ({ onSubmit }) => {
@@ -12,6 +13,7 @@ const AddForm = ({ onSubmit }) => {
   const onSubmitHandle = (evt) => {
     evt.preventDefault();
     if (value === "") {
+      toast.error("Enter note");
       return;
     }
     addNote(value, onSubmit);
